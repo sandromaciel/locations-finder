@@ -1,6 +1,6 @@
 # IBGE Location Finder (PT-BR)
 
-Projeto desenvolvido consumindo uma [API](https://brasilapi.com.br/docs) para simular uma aplicação web simples para o IBGE, onde são disponibilizadas as regiões do Brasil, seus estados e suas respectivas cidades.
+Projeto desenvolvido consumindo uma API ([Brasil API](https://brasilapi.com.br/docs)) para simular uma aplicação web simples para o IBGE, onde são disponibilizadas as regiões do Brasil, seus estados e suas respectivas cidades.
 
 ### Tecnologias
 O projeto foi desenvolvido usando as seguintes tecnologias:
@@ -25,7 +25,7 @@ O projeto foi desenvolvido de forma simples, o que abre espaço para possíveis 
 
 # IBGE Location Finder (EN)
 
-Project developed using an [API](https://brasilapi.com.br/docs) to simulate a simple web application for IBGE, where the regions of Brazil, its states and their cities are available.
+Project developed using an API ([Brasil API](https://brasilapi.com.br/docs)) to simulate a simple web application for IBGE, where the regions of Brazil, its states and their cities are available.
 
 ### Technologies
 The project was developed using the following technologies:
