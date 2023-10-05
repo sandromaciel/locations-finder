@@ -19,6 +19,7 @@ O projeto foi desenvolvido de forma simples, o que abre espaço para possíveis 
 
 - Design de Interface mais complexo, utilizando cards animados no lugar dos botões e também personalização dos elementos já utilizados.
 - Uso de Frameworks.
+- Tratamentos de exceção.
 - Adição de novas funcionalidades (Ex: redirecionamento para um portal com informações relacionadas a cidade selecionada).
 - Refatorar/Revisar código.
 
@@ -43,6 +44,7 @@ The use of the Google Chrome browser is recommended.
 The project was developed in a simple way, which opens up room for possible changes, including:
 - More complex interface design, using animated cards instead of buttons and also customizing the elements already used.
 - Use of frameworks.
+- Exception handling.
 - Adding new features (e.g. redirecting to a portal with information related to the selected city).
 - Refactoring/revising code.
   
