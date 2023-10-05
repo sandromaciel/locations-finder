@@ -28,58 +28,70 @@ const getAllRegions = async () => {
 };
 
 const getCitiesByState = async (stateAcronym) => {
-  const baseURL = `https://brasilapi.com.br/api/ibge/municipios/v1/${stateAcronym}?providers=dados-abertos-br,gov,wikipedia`;
-  const response = await fetch(baseURL);
+  const URL = `https://brasilapi.com.br/api/ibge/municipios/v1/${stateAcronym}?providers=dados-abertos-br,gov,wikipedia`;
+  const response = await fetch(URL);
   const cities = await response.json();
 
   return cities;
 };
 
 const showCitiesByState = async (stateAcronym) => {
-  const citiesList = document.getElementById("cities-list");
+  const citiesList = document.getElementById("cities__list");
   const citiesArray = await getCitiesByState(stateAcronym);
+  const citiesTitle = document.querySelector(".cities__title");
 
   citiesList.innerHTML = "";
-  for (let i = 0; i < citiesArray.length; i++) {
-    const cityButton = document.createElement("li");
+  citiesTitle.classList.remove("hidden");
 
-    cityButton.textContent = citiesArray[i].nome;
-    citiesList.appendChild(cityButton);
+  for (let i = 0; i < citiesArray.length; i++) {
+    const cityLi = document.createElement("li");
+    cityLi.classList.add("indicator");
+
+    cityLi.textContent = citiesArray[i].nome;
+    citiesList.appendChild(cityLi);
   }
 };
 
 const showStatesByRegion = async (event) => {
-  const statesList = document.getElementById("states-list");
-  const citiesList = document.getElementById("cities-list");
+  const statesList = document.getElementById("states__list");
+  const citiesList = document.getElementById("cities__list");
+  const regionsTitle = document.querySelector(".states__title");
+  const citiesTitle = document.querySelector(".cities__title");
   const clickedElement = event.target;
   const regionToSearch = clickedElement.innerText;
   const states = await getStates();
   const filteredStates = states.filter((state) => {
     return state.regiao.nome === regionToSearch;
   });
-  statesList.innerHTML = "";
-  for (let i = 0; i < filteredStates.length; i++) {
-    const stateButton = document.createElement("button");
 
-    stateButton.addEventListener("click", (event) => {
+  statesList.innerHTML = "";
+  regionsTitle.classList.remove("hidden");
+  citiesTitle.classList.add("hidden");
+
+  for (let i = 0; i < filteredStates.length; i++) {
+    const stateLi = document.createElement("li");
+    stateLi.classList.add("indicator");
+
+    stateLi.addEventListener("click", (event) => {
       showCitiesByState(filteredStates[i].sigla);
     });
-    stateButton.textContent = filteredStates[i].nome;
-    statesList.appendChild(stateButton);
+    stateLi.textContent = filteredStates[i].nome;
+    statesList.appendChild(stateLi);
   }
   citiesList.innerHTML = "";
 };
 
 const main = async () => {
   const regionsNames = await getAllRegions();
-  const regionsUl = document.getElementById("regions-list");
+  const regionsUl = document.getElementById("regions__list");
 
   for (let i = 0; i < regionsNames.length; i++) {
-    const button = document.createElement("button");
+    const li = document.createElement("li");
+    li.classList.add("indicator");
 
-    button.addEventListener("click", showStatesByRegion);
-    button.textContent = regionsNames[i];
-    regionsUl.appendChild(button);
+    li.addEventListener("click", showStatesByRegion);
+    li.textContent = regionsNames[i];
+    regionsUl.appendChild(li);
   }
 };
 document.onload = main();

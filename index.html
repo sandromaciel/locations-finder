@@ -6,17 +6,25 @@
     <title>IBGE Web Application</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-    <div class="regions-container">
-        <ul id="regions-list"></ul>
-    </div>
-    <div class="states-container">
-        <ul id="states-list"></ul>
-    </div>
-    <div>
-        <ul id="cities-list"></ul>
-    </div>
-
+<body class="background">
+    <header class="header__container">
+        <img class="header__logo" src="./assets/logo_mobile.png" alt="ibge-logo">
+        <h1 class="header__title">Location Finder</h1>
+    </header>
+    <section class="container regions__container">
+        <h1 class="title">Choose a Region</h1>
+        <ul id="regions__list"></ul>
+    </section>
+    
+    <section class="container states__container">
+        <h1 class="title states__title hidden">Choose a State</h1>
+        <ul id="states__list"></ul>
+    </section>
+  
+    <section class="container cities__container">
+        <h1 class="title cities__title hidden">Cities</h1>
+        <ul id="cities__list"></ul>
+    </section>
 
 
     <script src="/js/index.js"></script>
